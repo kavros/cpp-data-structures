@@ -1,5 +1,5 @@
 # Overview
-This project aims to develop common data structures in C++ such as trees, lists, hashtable and graphs
+This project aims to develop common data structures in C++ such as trie, queue, stack, hashtable and graphs
 
 # Build
 
