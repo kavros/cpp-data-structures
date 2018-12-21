@@ -15,6 +15,7 @@ public:
     void Insert(T val) override;
     T* Remove() override;
     void Remove(T target) override;
+    void Clean() override;
     
 private:
     struct Node<T>* last;

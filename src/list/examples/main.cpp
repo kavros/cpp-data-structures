@@ -7,9 +7,11 @@ int main()
     Queue<double> queue;
     queue.Insert(1.9f);
     queue.Insert(2.0f);
+    queue.Print();
+    queue.Remove(1.93f);
+    queue.Print();
     printf ("queue size = %d \n", queue.Size());
     double* next;
-    
     while( (next = queue.Remove()) != nullptr)
     {
         double* temp = next;
@@ -17,6 +19,8 @@ int main()
         delete  temp;
     }
     printf ("queue size = %d \n", queue.Size());
+    
+    
     return 0;
 }
 

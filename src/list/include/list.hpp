@@ -14,6 +14,7 @@ public:
     virtual void Print() = 0;
     virtual void Insert(T val) = 0;
     virtual T* Remove() = 0;
+    virtual void Clean()=0;
     virtual void Remove(T target) = 0;
 protected:
     int size;
