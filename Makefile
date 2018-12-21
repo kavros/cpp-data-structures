@@ -5,7 +5,8 @@ COMPILE_FLAGS=-std=c++11 -Wall -Wextra -g -O3
 INCLUDES= -I /usr/local/include
 CPPUNITLDFLAGS=-lcppunit -Isrc -Itest
 
-OBJECTS=bin/queue.o
+OBJECTS= bin/queue.o\
+	bin/list.o
 EXECS=bin/queue\
 	bin/queueUnitTest
 
@@ -20,6 +21,10 @@ all: 	directories\
 .PHONY: directories
 directories:
 	mkdir -p bin/unit_tests
+
+bin/list.o: src/list/src/list.cpp\
+	src/list/include/list.hpp
+	$(CC) -c $< -o $@
 
 bin/queue.o: src/list/src/queue.cpp\
 	src/list/include/queue.hpp\

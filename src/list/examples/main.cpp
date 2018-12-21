@@ -1,20 +1,22 @@
 #include <cstdlib>
 #include "../src/queue.cpp"
+#include "../src/list.cpp"
+
 using namespace std;
 
 int main() 
 {
-    Queue<double> queue;
+    Queue<float> queue;
     queue.Insert(1.9f);
     queue.Insert(2.0f);
     queue.Print();
-    queue.Remove(1.93f);
+    queue.List<float>::Remove(1.93f);
     queue.Print();
     printf ("queue size = %d \n", queue.Size());
-    double* next;
+    float* next;
     while( (next = queue.Remove()) != nullptr)
     {
-        double* temp = next;
+        float* temp = next;
         printf ("delete element %f \n", *next);
         delete  temp;
     }

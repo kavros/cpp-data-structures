@@ -1,6 +1,7 @@
 #include <cppunit/extensions/HelperMacros.h>
 #include <stdlib.h>
 #include "../src/queue.cpp"
+#include "../src/list.cpp"
 #include <string.h>
 class QueueUnitTest:public CppUnit::TestFixture 
 {
@@ -52,11 +53,11 @@ class QueueUnitTest:public CppUnit::TestFixture
             CPPUNIT_ASSERT_EQUAL(*a, 19);
             delete a;
             
-            queue.Remove(200);
+            queue.List<int>::Remove(200);
             CPPUNIT_ASSERT_EQUAL(queue.Size(), 2);
             
-            queue.Remove(20);
-            queue.Remove(25);
+            queue.List<int>::Remove(20);
+            queue.List<int>::Remove(25);
             CPPUNIT_ASSERT_EQUAL(queue.Size(), 0);            
             
         }

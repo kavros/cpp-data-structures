@@ -8,18 +8,11 @@ template<class T>
 class Queue:public List<T> 
 {
 public:
-    Queue();   
-    virtual ~Queue();
+
     
-    void Print()  override;
     void Insert(T val) override;
     T* Remove() override;
-    void Remove(T target) override;
-    void Clean() override;
     
-private:
-    struct Node<T>* last;
-    struct Node<T>* head;
 };
 
 #endif /* QUEUE_HPP */
