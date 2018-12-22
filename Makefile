@@ -6,7 +6,10 @@ INCLUDES= -I /usr/local/include
 CPPUNITLDFLAGS=-lcppunit -Isrc -Itest
 
 OBJECTS= bin/queue.o\
-	bin/list.o
+	bin/list.o\
+	bin/main.o\
+	bin/stack.o
+	
 EXECS=bin/queue\
 	bin/queueUnitTest
 
@@ -44,8 +47,14 @@ bin/queueUnitTest: bin/queue.o\
 		    bin/cppunit_test_driver.o
 	$(CC)  $^ $(COMPILE_FLAGS) $(CPPUNITLDFLAGS) $(INCLUDES) -o $@ 
 
-bin/queue: src/list/examples/main.cpp\
-	$(OBJECTS)
+bin/main.o: src/list/examples/main.cpp
+	$(CC) $(COMPILE_FLAGS) -c $< -o $@
+
+bin/stack.o: src/list/src/stack.cpp\
+	    src/list/include/stack.hpp
+	$(CC) $(COMPILE_FLAGS) -c $< -o $@
+
+bin/queue: $(OBJECTS)
 	$(CC) $(COMPILE_FLAGS) $^  -o $@
 
 

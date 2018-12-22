@@ -1,8 +1,6 @@
 #include <cstdlib>
-#include "../src/queue.cpp"
-#include "../src/list.cpp"
-#include "../src/stack.cpp"
-
+#include "../include/queue.hpp"
+#include "../include/stack.hpp"
 using namespace std;
 
 int main() 
