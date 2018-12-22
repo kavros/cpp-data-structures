@@ -1,5 +1,4 @@
 #include "../include/stack.hpp"
-
 template <typename T> 
 void Stack<T>::Insert(T val)
 {
@@ -19,3 +18,8 @@ void Stack<T>::Insert(T val)
     List<T>::size++;
 }
 
+
+template class Stack<float>;
+template class Stack<int>;
+template class Stack<double>;
+template class Stack<std::string>;

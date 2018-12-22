@@ -1,5 +1,6 @@
 #include "../include/queue.hpp"
 #include <assert.h>
+#include "string.h"
 
 template <typename T> 
 void Queue<T>::Insert(T val)
@@ -24,4 +25,8 @@ void Queue<T>::Insert(T val)
     //increase list size
     List<T>::size++;
 }
-
+// explicit instantiations
+template class Queue<int>;
+template class Queue<float>;
+template class Queue<double>;
+template class Queue<std::string>;

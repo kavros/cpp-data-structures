@@ -12,7 +12,7 @@ protected:
 public:
     
     List();   
-    virtual ~List();
+    ~List();
     
     virtual void Insert(T val) = 0;
     T* Remove();

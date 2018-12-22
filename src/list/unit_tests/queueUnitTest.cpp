@@ -1,7 +1,7 @@
 #include <cppunit/extensions/HelperMacros.h>
 #include <stdlib.h>
-#include "../src/queue.cpp"
-#include "../src/list.cpp"
+#include "../include/queue.hpp"
+#include "../include/list.hpp"
 #include <string.h>
 class QueueUnitTest:public CppUnit::TestFixture 
 {

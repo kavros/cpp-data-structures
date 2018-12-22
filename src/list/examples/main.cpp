@@ -2,7 +2,6 @@
 #include "../include/queue.hpp"
 #include "../include/stack.hpp"
 using namespace std;
-
 int main() 
 {
     Queue<float> queue;

@@ -94,3 +94,7 @@ T* List<T>::Remove()
     return valPtr;
 }
 
+template class List<float>;
+template class List<int>;
+template class List<double>;
+template class List<std::string>;
