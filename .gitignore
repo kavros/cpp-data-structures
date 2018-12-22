@@ -2,4 +2,4 @@ bin
 nbproject
 libs
 TestResults.xml
-.build/
+build/
