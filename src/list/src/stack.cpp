@@ -4,6 +4,7 @@ void Stack<T>::Insert(T val)
 {
     Node<T>* newNode = new Node<T>;
     newNode->val = val;
+    newNode->next = nullptr;
     if(List<T>::head == nullptr )
     {
         List<T>::head = newNode;

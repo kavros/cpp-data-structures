@@ -69,6 +69,7 @@ class StackUnitTest:public CppUnit::TestFixture
             stack.Insert("Antonis");
             
             CPPUNIT_ASSERT_EQUAL(stack.Find("Antonis"),true);
+             CPPUNIT_ASSERT_EQUAL(stack.Find("Antonis2"),false);
             CPPUNIT_ASSERT_EQUAL(stack.Size(),2);
             
         }

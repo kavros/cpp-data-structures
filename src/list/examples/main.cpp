@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include "../include/queue.hpp"
 #include "../include/stack.hpp"
+#include <assert.h>
 using namespace std;
 int main() 
 {
@@ -31,6 +32,17 @@ int main()
         printf ("delete element %f \n", *next);
         delete  temp;
     }
+    
+    
+    Stack<std::string> stack2;
+    stack2.Insert("Alex");
+    stack2.Insert("Antonis");
+
+    assert(stack2.Find("Antonis")==true);
+    assert(stack2.Find("Antonis2")==false); 
+    assert(stack2.Size()==2);
+    stack2.Print();
+
     return 0;
 }
 
