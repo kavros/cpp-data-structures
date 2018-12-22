@@ -7,11 +7,8 @@
 template<class T> 
 class Queue:public List<T> 
 {
-public:
-
-    
+public: 
     void Insert(T val) override;
-    T* Remove() override;
     
 };
 

@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include "../src/queue.cpp"
 #include "../src/list.cpp"
+#include "../src/stack.cpp"
 
 using namespace std;
 
@@ -22,7 +23,17 @@ int main()
     }
     printf ("queue size = %d \n", queue.Size());
     
-    
+    Stack<float> stack;
+    stack.Insert(10.0f);
+    stack.Insert(11.0f);
+    stack.Insert(12.0f);
+    stack.Print();
+    while( (next = stack.Remove()) != nullptr)
+    {
+        float* temp = next;
+        printf ("delete element %f \n", *next);
+        delete  temp;
+    }
     return 0;
 }
 

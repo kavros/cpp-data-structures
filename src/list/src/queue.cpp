@@ -25,17 +25,3 @@ void Queue<T>::Insert(T val)
     List<T>::size++;
 }
 
-template <typename T> 
-T* Queue<T>::Remove()
-{
-    if(List<T>::size == 0) return nullptr;
-    T* valPtr = new T;
-    *valPtr  = List<T>::head->val;
-    
-    Node<T>* target = List<T>::head;
-    List<T>::head = List<T>::head->next;
-    delete target;    
-    List<T>::size--;
-    
-    return valPtr;
-}

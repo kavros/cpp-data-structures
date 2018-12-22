@@ -15,7 +15,7 @@ public:
     virtual ~List();
     
     virtual void Insert(T val) = 0;
-    virtual T* Remove() = 0;
+    T* Remove();
     
     
     int Size();
