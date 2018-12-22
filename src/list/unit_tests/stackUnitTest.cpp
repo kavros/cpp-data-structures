@@ -11,6 +11,7 @@ class StackUnitTest:public CppUnit::TestFixture
     CPPUNIT_TEST(testInsert);
     CPPUNIT_TEST(testRemove);
     CPPUNIT_TEST(testClean);
+    CPPUNIT_TEST(testFind);
     CPPUNIT_TEST_SUITE_END();
     
     public:
@@ -45,7 +46,7 @@ class StackUnitTest:public CppUnit::TestFixture
             stack.Insert("Alex");
             stack.Insert("Antonis");
             
-            stack.Remove("Antonis");
+            CPPUNIT_ASSERT_EQUAL(stack.Remove("Antonis"),true);
             CPPUNIT_ASSERT_EQUAL(stack.Size(),1);
            
         }
@@ -59,6 +60,17 @@ class StackUnitTest:public CppUnit::TestFixture
             stack.Clean();
             
             CPPUNIT_ASSERT_EQUAL(stack.Size(),0);
+        }
+        
+        void testFind()
+        {
+            Stack<std::string> stack;
+            stack.Insert("Alex");
+            stack.Insert("Antonis");
+            
+            CPPUNIT_ASSERT_EQUAL(stack.Find("Antonis"),true);
+            CPPUNIT_ASSERT_EQUAL(stack.Size(),2);
+            
         }
         
         

@@ -48,7 +48,7 @@ void List<T>::Clean()
 }
 
 template <typename T> 
-void List<T>::Remove(T target)
+bool List<T>::Remove(T target)
 {
     Node<T>* curr = head;
     Node<T>* prev = nullptr;
@@ -63,7 +63,7 @@ void List<T>::Remove(T target)
     }
     
     if( curr==nullptr)
-        return;
+        return false;
     
     if(head == curr)
     {
@@ -77,6 +77,7 @@ void List<T>::Remove(T target)
         delete curr;
         List<T>::size--;
     }
+    return true;
 }
 
 template <typename T> 
@@ -92,6 +93,25 @@ T* List<T>::Remove()
     List<T>::size--;
     
     return valPtr;
+}
+
+template <typename T> 
+bool List<T>::Find(T val)
+{
+    if( head->val == val )
+        return true;
+    
+     Node<T>* curr = head->next;
+    
+    while(curr!= nullptr)
+    {
+        if( curr->val ==  val)
+            return true;
+        
+        curr=curr->next;
+    }
+     
+    return false;
 }
 
 template class List<float>;

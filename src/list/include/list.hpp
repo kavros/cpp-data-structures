@@ -17,11 +17,11 @@ public:
     virtual void Insert(T val) = 0;
     T* Remove();
     
-    
+    bool Find(T val);
     int Size();
     void Print();
     void Clean();
-    void Remove(T target);
+    bool Remove(T target);
 
 };
 
