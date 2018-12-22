@@ -1,1 +1,0 @@
-/usr/bin/c++    -rdynamic CMakeFiles/dataStructures.dir/src/list/examples/main.cpp.o CMakeFiles/dataStructures.dir/src/list/src/list.cpp.o CMakeFiles/dataStructures.dir/src/list/src/queue.cpp.o CMakeFiles/dataStructures.dir/src/list/src/stack.cpp.o  -o ../bin/dataStructures  -L/home/alexis/Desktop/dataStructures/src/list/include 

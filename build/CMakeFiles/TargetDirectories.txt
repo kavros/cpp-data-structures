@@ -1,3 +1,0 @@
-/home/alexis/Desktop/dataStructures/build/CMakeFiles/rebuild_cache.dir
-/home/alexis/Desktop/dataStructures/build/CMakeFiles/dataStructures.dir
-/home/alexis/Desktop/dataStructures/build/CMakeFiles/edit_cache.dir
