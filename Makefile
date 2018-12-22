@@ -8,10 +8,11 @@ CPPUNITLDFLAGS=-lcppunit -Isrc -Itest
 OBJECTS= bin/queue.o\
 	bin/list.o\
 	bin/main.o\
-	bin/stack.o
+	bin/stack.o\
 	
 EXECS=bin/queue\
-	bin/queueUnitTest
+	bin/queueUnitTest\
+	bin/stackUnitTest
 
 
 .PHONY: all
@@ -41,12 +42,22 @@ bin/cppunit_test_driver.o:src/list/unit_tests/cppunitTestDriver.cpp
 bin/queueUnitTest.o:  src/list/unit_tests/queueUnitTest.cpp
 	$(CC) $(COMPILE_FLAGS) -c $< $(CPPUNITLDFLAGS) $(INCLUDES) -o $@
 	
+bin/stackUnitTest.o:  src/list/unit_tests/stackUnitTest.cpp
+	$(CC) $(COMPILE_FLAGS) -c $< $(CPPUNITLDFLAGS) $(INCLUDES) -o $@
 	
 bin/queueUnitTest: bin/queue.o\
 		    bin/queueUnitTest.o\
 		    bin/list.o\
 		    bin/cppunit_test_driver.o
 	$(CC)  $^ $(COMPILE_FLAGS) $(CPPUNITLDFLAGS) $(INCLUDES) -o $@ 
+
+
+bin/stackUnitTest: bin/stack.o\
+		    bin/stackUnitTest.o\
+		    bin/list.o\
+		    bin/cppunit_test_driver.o
+	$(CC)  $^ $(COMPILE_FLAGS) $(CPPUNITLDFLAGS) $(INCLUDES) -o $@ 
+
 
 bin/main.o: src/list/examples/main.cpp\
 	src/list/include/queue.hpp\
