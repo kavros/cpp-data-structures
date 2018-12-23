@@ -2,9 +2,10 @@ sudo: false
 language: c++
 cache:
   directories:
-  - cppunit-1.14.0 
+  - cppunit-1.13.2 
 before_install:
   - sh ./scripts/getCppUnit.sh
+  - . scripts/exports.sh
 script:
   - make 
   - make run_tests

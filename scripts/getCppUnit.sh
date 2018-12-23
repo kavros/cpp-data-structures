@@ -1,7 +1,6 @@
-echo $HOME/include/cppunit/
+ls $HOME/include/cppunit/
 if [ -f  $HOME/include/cppunit/Message.h ]; then
     echo "CppUnit is already installed"
-    . scripts/exports.sh
 else
     echo "Install CppUnit"
     wget http://dev-www.libreoffice.org/src/cppunit-1.13.2.tar.gz
