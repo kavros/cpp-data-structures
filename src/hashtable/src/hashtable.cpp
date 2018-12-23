@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 #include <string.h>
+#include <typeinfo> 
 template<typename K, typename V>
 Hashtable<K,V>::Hashtable()
 {
