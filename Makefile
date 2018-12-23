@@ -33,6 +33,7 @@ directories:
 run_tests:
 	./bin/queueUnitTest
 	./bin/stackUnitTest
+	./bin/hashtableUnitTest
 
 # Hashtable 
 bin/hashtable.o: src/hashtable/src/hashtable.cpp\
