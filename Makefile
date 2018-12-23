@@ -1,7 +1,7 @@
 CC =g++
 IDIR=list/include
 CFLAGS=-I$(IDIR)
-COMPILE_FLAGS=-std=c++11 -Wall -Wextra -g -O3 
+COMPILE_FLAGS=-std=c++11 -Wall -Wextra -g -O3  -std=c++0x 
 INCLUDES= -I /usr/local/include
 CPPUNITLDFLAGS=-lcppunit -Isrc -Itest
 
