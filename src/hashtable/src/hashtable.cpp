@@ -145,7 +145,7 @@ void Hashtable<K,V>::Clean()
         }
         array[i] = nullptr;
     }
-    
+     size=0;
     
 }
 
