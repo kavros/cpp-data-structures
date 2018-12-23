@@ -13,7 +13,9 @@ OBJECTS= bin/queue.o\
 	
 EXECS=bin/queue\
 	bin/queueUnitTest\
-	bin/stackUnitTest
+	bin/stackUnitTest\
+	bin/hashtable\
+	bin/hashtableUnitTest
 
 
 .PHONY: all
@@ -41,6 +43,19 @@ bin/hash_main.o: src/hashtable/examples/main.cpp\
 		src/hashtable/include/hashtable.hpp
 	$(CC) $(COMPILE_FLAGS) -c $< -o $@
 
+bin/hashtable: bin/hash_main.o\
+	bin/hashtable.o	
+	$(CC) $(COMPILE_FLAGS) $^ -o $@
+	
+bin/hashtableUnitTest.o: src/hashtable/unit_tests/hashtableUnitTest.cpp\
+	src/hashtable/include/hashtable.hpp
+	$(CC) -c $< $(COMPILE_FLAGS) $(CPPUNITLDFLAGS) $(INCLUDES) -o $@ 
+	
+bin/hashtableUnitTest: bin/hashtable.o\
+		    bin/hashtableUnitTest.o\
+		    bin/cppunit_test_driver.o
+	$(CC)  $^ $(COMPILE_FLAGS) $(CPPUNITLDFLAGS) $(INCLUDES) -o $@ 
+	
 # List, Queue, Stack, Example, unit test
 bin/list.o: src/list/src/list.cpp\
 	src/list/include/list.hpp
