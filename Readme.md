@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/kavros/cpp-data-structures.svg?branch=master)](https://travis-ci.com/kavros/cpp-data-structures)
 # Overview
 This project aims to develop common data structures in C++ such as trie, queue, stack, hashtable and graphs
 
