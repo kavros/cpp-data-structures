@@ -66,7 +66,7 @@ bin/queue.o: src/list/src/queue.cpp\
 	src/list/include/queue.hpp\
 	src/list/include/node.hpp\
 	src/list/include/list.hpp
-	$(CC) -c $< -o $@
+	$(CC) $(COMPILE_FLAGS) -c $< -o $@
 
 
 bin/cppunit_test_driver.o:src/list/unit_tests/cppunitTestDriver.cpp
