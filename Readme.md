@@ -12,11 +12,12 @@ $ make install
 $ . ../scripts/exports.sh 
 ```
 
-# Build
+# Build & Run
 * Install CppUnit using the instructions.
-* Build project using the following commands:
+* Build project and run unit tests using the following commands:
 ```
 $ make
+$ make run_tests
 ```
 * Work in progress for CMake support:
 ```

@@ -9,6 +9,7 @@ OBJECTS= bin/queue.o\
 	bin/list.o\
 	bin/main.o\
 	bin/stack.o\
+	bin/hashtable.o
 	
 EXECS=bin/queue\
 	bin/queueUnitTest\
@@ -26,6 +27,21 @@ all: 	directories\
 directories:
 	mkdir -p bin/unit_tests
 
+.PHONY: run_tests
+run_tests:
+	./bin/queueUnitTest
+	./bin/stackUnitTest
+
+# Hashtable 
+bin/hashtable.o: src/hashtable/src/hashtable.cpp\
+		src/hashtable/include/hashtable.hpp
+	$(CC) $(COMPILE_FLAGS) -c $< -o $@
+
+bin/hash_main.o: src/hashtable/examples/main.cpp\
+		src/hashtable/include/hashtable.hpp
+	$(CC) $(COMPILE_FLAGS) -c $< -o $@
+
+# List, Queue, Stack, Example, unit test
 bin/list.o: src/list/src/list.cpp\
 	src/list/include/list.hpp
 	$(CC) -c $< -o $@
@@ -35,6 +51,7 @@ bin/queue.o: src/list/src/queue.cpp\
 	src/list/include/node.hpp\
 	src/list/include/list.hpp
 	$(CC) -c $< -o $@
+
 
 bin/cppunit_test_driver.o:src/list/unit_tests/cppunitTestDriver.cpp
 	$(CC) $(COMPILE_FLAGS) -c $< $(CPPUNITLDFLAGS) $(INCLUDES) -o $@
