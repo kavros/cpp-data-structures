@@ -13,18 +13,23 @@ $ . ../scripts/exports.sh
 ```
 
 # Build
+* Install CppUnit using the instructions.
+* Build project using the following commands:
 ```
 $ make
-     or
+```
+* Work in progress for CMake support:
+```
 $ cmake -H. -Bbuild
 $ cmake --build build -- -j3
 ```
 
 
 
+# Project GuideLines
+* Source files naming: 
+    * All letters must be lower case.
+* Struct, Class, Function naming: 
+    * Only the first letter of each word is uppercase and the rest are lowercase.
+* Every bracket has a new line before and after.
 
-# Naming Conventions 
-*.cpp: lowercase
-*.hpp: lowercase
-struct,class,function names: only the first letter of each word is uppercase and the other letters are lowercase
-every bracket has a new line before and after
