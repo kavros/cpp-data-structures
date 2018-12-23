@@ -60,13 +60,13 @@ bin/hashtableUnitTest: bin/hashtable.o\
 # List, Queue, Stack, Example, unit test
 bin/list.o: src/list/src/list.cpp\
 	src/list/include/list.hpp
-	$(CC) -c $< -o $@
+	$(CC) -c $< $(COMPILE_FLAGS)  -o $@
 
 bin/queue.o: src/list/src/queue.cpp\
 	src/list/include/queue.hpp\
 	src/list/include/node.hpp\
 	src/list/include/list.hpp
-	$(CC) $(COMPILE_FLAGS) -c $< -o $@
+	$(CC) -c $<  $(COMPILE_FLAGS)-o $@
 
 
 bin/cppunit_test_driver.o:src/list/unit_tests/cppunitTestDriver.cpp
