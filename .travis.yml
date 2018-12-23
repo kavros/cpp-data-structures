@@ -1,0 +1,10 @@
+sudo: false
+language: c++
+cache:
+  directories:
+  - cppunit-1.14.0 
+before_install:
+  - sh ./scripts/getCppUnit.sh
+script:
+  - make 
+  - make run_tests
