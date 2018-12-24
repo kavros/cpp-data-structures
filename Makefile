@@ -9,13 +9,16 @@ OBJECTS= bin/queue.o\
 	bin/list.o\
 	bin/main.o\
 	bin/stack.o\
-	bin/hashtable.o
+	bin/hashtable.o\
+	bin/bst
 	
 EXECS=bin/queue\
 	bin/queueUnitTest\
 	bin/stackUnitTest\
 	bin/hashtable\
-	bin/hashtableUnitTest
+	bin/hashtableUnitTest\
+	bin/bstUnitTest\
+	
 
 
 .PHONY: all
@@ -34,6 +37,29 @@ run_tests:
 	./bin/queueUnitTest
 	./bin/stackUnitTest
 	./bin/hashtableUnitTest
+#BST
+bin/bst.o: src/tree/src/bst.cpp\
+	src/tree/include/bst.hpp
+	$(CC) $(COMPILE_FLAGS) -c $< -o $@
+
+bin/bst_main.o: src/tree/examples/main.cpp\
+	    src/tree/include/bst.hpp\
+	    src/tree/src/bst.cpp
+	$(CC) $(COMPILE_FLAGS) -c $< -o $@
+	
+bin/bstUnitTest.o: src/tree/unit_tests/bstUnitTest.cpp\
+		src/tree/include/bst.hpp\
+		src/tree/src/bst.cpp
+	$(CC) $(COMPILE_FLAGS) -c $<  $(CPPUNITLDFLAGS) $(INCLUDES) -o $@
+
+bin/bst: bin/bst_main.o\
+	bin/bst.o
+	$(CC) $(COMPILE_FLAGS)  $^ -o $@
+	
+bin/bstUnitTest:bin/bstUnitTest.o\
+		bin/bst.o\
+		bin/cppunit_test_driver.o
+	$(CC)   $(COMPILE_FLAGS)  $^ $(CPPUNITLDFLAGS) $(INCLUDES) -o $@
 
 # Hashtable 
 bin/hashtable.o: src/hashtable/src/hashtable.cpp\
