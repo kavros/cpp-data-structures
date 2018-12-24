@@ -17,6 +17,7 @@ EXECS=bin/queue\
 	bin/hashtable\
 	bin/hashtableUnitTest\
 	bin/bstUnitTest\
+	bin/bst
 	
 
 
@@ -30,6 +31,7 @@ all: 	directories\
 .PHONY: directories
 directories:
 	mkdir -p bin/unit_tests
+
 
 .PHONY: run_tests
 run_tests:

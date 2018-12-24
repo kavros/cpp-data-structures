@@ -3,27 +3,31 @@
 
 template<typename T> class BSTNode
 {
-    T Key;
-    BSTNode<T>* parent;
-    BSTNode<T>* left;
-    BSTNode<T>* right;
+    public:
+        T key;
+        BSTNode<T>* parent;
+        BSTNode<T>* left;
+        BSTNode<T>* right;
 };
 
 template<typename T> class BST
 {
-public:
-    BST();
-    
-    virtual ~BST();
-    void Insert(T key);
-    bool Remove(T key);
-    BSTNode<T>* Find(T key);
-    void Print();
-    void Destroy();
-    
-private:
-    BSTNode<T>* root;
-    int size;
+    public:
+        BST();
+        
+        virtual ~BST();
+        void Insert(T key);
+        bool Remove(T key);
+        BSTNode<T>* Find(T key);
+        void Print();
+        void Destroy();
+        int Size();
+        private:
+            BSTNode<T>* root;
+            int size;
+            BSTNode<T>* CreateNode(T key);
+            void InOder(BSTNode<T>* node);
+            BSTNode<T>* FindMin(BSTNode<T>* node);
 };
 
 #endif /* BST_HPP */
