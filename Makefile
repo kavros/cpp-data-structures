@@ -10,7 +10,6 @@ OBJECTS= bin/queue.o\
 	bin/main.o\
 	bin/stack.o\
 	bin/hashtable.o\
-	bin/bst
 	
 EXECS=bin/queue\
 	bin/queueUnitTest\
@@ -128,7 +127,10 @@ bin/stack.o: src/list/src/stack.cpp\
 	    src/list/include/stack.hpp
 	$(CC) $(COMPILE_FLAGS) -c $< -o $@
 
-bin/queue: $(OBJECTS)
+bin/queue: bin/queue.o\
+	bin/list.o\
+	bin/main.o\
+	bin/stack.o
 	$(CC) $(COMPILE_FLAGS) $^  -o $@
 
 
