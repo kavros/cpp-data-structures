@@ -12,6 +12,7 @@ BST<T>::BST()
 template<typename T> 
 BST<T>::~BST() 
 {
+    Destroy();
 }
 
 template<typename T> 
@@ -215,8 +216,12 @@ void BST<T>::InOder(BSTNode<T>* node)
 template<typename T> 
 void BST<T>::Destroy()
 {
-    
+    while(Size() != 0)
+        Remove(root->key);
 }
+
+
+
 
 template<typename T> 
 int BST<T>::Size()
