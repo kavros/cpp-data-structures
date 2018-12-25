@@ -51,7 +51,6 @@ void BST<T>::Insert(T key)
         prev->left = newNode;
         newNode->parent = prev;
     }
-            
     size++;    
 }
 
@@ -63,7 +62,7 @@ bool BST<T>::Remove(T key)
     
     if(target == nullptr)
     {
-        std::cout<<"\n Key: "<< key <<" is not in bst\n"<<std::endl;
+        //std::cout<<"\n Key: "<< key <<" is not in bst\n"<<std::endl;
         return false;
     }
     
@@ -71,10 +70,9 @@ bool BST<T>::Remove(T key)
     if(target->left != nullptr && target->right != nullptr)
     {
         // find min at the right subtree and swap it with the target node
-        std::cout<<"\n Delete Key: "<< target->key <<" \n"<<std::endl;
+        //std::cout<<"\n Delete Key: "<< target->key <<" \n"<<std::endl;
         
         BstNodeSwap(&target);
-        Print();
 
         assert(target->left == nullptr || target->right == nullptr );
     }
@@ -123,6 +121,9 @@ bool BST<T>::Remove(T key)
         else
             child = target->right;
         
+        //assign new parent node to child
+        child->parent= parent;
+        
         if(target != root)
         {
             if( parent->left != nullptr && parent->left->key == key )
@@ -158,15 +159,12 @@ void BST<T>::BstNodeSwap(BSTNode<T>** target)
         swapNode = curr;
         curr = curr->left;
     }
-    std::cout<<"\n Swap with: "<< swapNode->key <<" \n"<<std::endl;
     
     T targetVal = (*target)->key;
     (*target)->key = swapNode->key;
     swapNode->key = targetVal;
 
     *target = swapNode;
-    std::cout<<"\n  parent key: "<< swapNode->parent->key <<" \n"<<std::endl;
-    std::cout<<"\n  parent key: "<< (*target)->parent->key <<" \n"<<std::endl;
 }
 
 template<typename T> 
@@ -204,7 +202,11 @@ void BST<T>::InOder(BSTNode<T>* node)
     if(node == nullptr)
         return;
     InOder(node->left);
-    std::cout<<node->key<<std::endl;
+    std::cout<<node->key; 
+    if(node!=root)
+        std::cout<<",parent:"<<node->parent->key<<std::endl;
+    else
+        std::cout<<std::endl;
     InOder(node->right);   
 }
 
