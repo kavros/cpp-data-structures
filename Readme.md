@@ -27,7 +27,7 @@ $ cmake --build build -- -j3
 
 
 
-# Project GuideLines
+# Code Style
 * Source files naming: 
     * All letters must be lower case.
 * Struct, Class, Function naming: 
