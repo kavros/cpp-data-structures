@@ -43,19 +43,19 @@ class BSTUnitTest:public CppUnit::TestFixture
             }
             
             CPPUNIT_ASSERT_EQUAL(bst.Remove(4),true);
+            CPPUNIT_ASSERT_EQUAL(bst.Size(),5);
             bst.Print();
-            //CPPUNIT_ASSERT_EQUAL(bst.Size(),5);
-            
-            /*CPPUNIT_ASSERT_EQUAL(bst.Remove(5),true);
-            CPPUNIT_ASSERT_EQUAL(bst.Remove(-5),false);
+            CPPUNIT_ASSERT_EQUAL(bst.Remove(5),true);
+            bst.Print();
+            /*CPPUNIT_ASSERT_EQUAL(bst.Remove(-5),false);
             CPPUNIT_ASSERT_EQUAL(bst.Size(),4);
-           
+            bst.Print();
             CPPUNIT_ASSERT_EQUAL(bst.Remove(6),true);
             CPPUNIT_ASSERT_EQUAL(bst.Size(),3);
             
             CPPUNIT_ASSERT_EQUAL(bst.Remove(1),true);
-            CPPUNIT_ASSERT_EQUAL(bst.Size(),2);
-            */
+            CPPUNIT_ASSERT_EQUAL(bst.Size(),2);*/
+            
         }
         
         void testClean()

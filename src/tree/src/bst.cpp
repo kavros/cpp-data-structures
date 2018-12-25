@@ -58,9 +58,27 @@ void BST<T>::Insert(T key)
 template<typename T> 
 bool BST<T>::Remove(T key)
 {
+    
     BSTNode<T>* target= Find(key);
+    
     if(target == nullptr)
+    {
+        std::cout<<"\n Key: "<< key <<" is not in bst\n"<<std::endl;
         return false;
+    }
+    
+    // case: target node has two children
+    if(target->left != nullptr && target->right != nullptr)
+    {
+        // find min at the right subtree and swap it with the target node
+        std::cout<<"\n Delete Key: "<< target->key <<" \n"<<std::endl;
+        
+        BstNodeSwap(&target);
+        Print();
+
+        assert(target->left == nullptr || target->right == nullptr );
+    }
+    
     
     // case: target node has no children
     if(target->left == nullptr && target->right == nullptr)
@@ -69,13 +87,14 @@ bool BST<T>::Remove(T key)
         
         if(target != root)
         {
-            // deletes index of the node
+            // deletes index which connect node with parent
             if( parent->left != nullptr && parent->left->key == key)
             {
                 parent->left = nullptr;
             }
             else if(  parent->right != nullptr && parent->right->key == key)
             {
+                
                 parent->right = nullptr;
             }
         }
@@ -90,21 +109,6 @@ bool BST<T>::Remove(T key)
 
     }
     
-    // case: target node has two children
-    if(target->left != nullptr && target->right != nullptr)
-    {
-        
-        // find min at the right subtree
-        BSTNode<T>* min = FindMin(target->right);
-        assert(min);
-        
-        /*T targetVal = target->key;
-        target->key = min->key;
-        min->key = targetVal;
-        assert(Find(targetVal));
-        Remove(targetVal);*/
-        return true;
-    }
     
     // case: target node has one children
     if(target->left != nullptr || target->right != nullptr)
@@ -145,17 +149,24 @@ bool BST<T>::Remove(T key)
     
 
 template<typename T> 
-BSTNode<T>* BST<T>::FindMin(BSTNode<T>* node)
+void BST<T>::BstNodeSwap(BSTNode<T>** target)
 {
-    BSTNode<T>* curr = node;
-    BSTNode<T>* prev = curr;
+    BSTNode<T>* curr = (*target)->right;
+    BSTNode<T>* swapNode = curr;
     while(curr != nullptr)
     {
-        prev = curr;
+        swapNode = curr;
         curr = curr->left;
     }
-    return prev;
-        
+    std::cout<<"\n Swap with: "<< swapNode->key <<" \n"<<std::endl;
+    
+    T targetVal = (*target)->key;
+    (*target)->key = swapNode->key;
+    swapNode->key = targetVal;
+
+    *target = swapNode;
+    std::cout<<"\n  parent key: "<< swapNode->parent->key <<" \n"<<std::endl;
+    std::cout<<"\n  parent key: "<< (*target)->parent->key <<" \n"<<std::endl;
 }
 
 template<typename T> 
@@ -184,6 +195,7 @@ template<typename T>
 void BST<T>::Print()
 {
     InOder(root);
+    std::cout<<std::endl;
 }
 
 template<typename T> 

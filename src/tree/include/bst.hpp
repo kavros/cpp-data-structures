@@ -27,7 +27,7 @@ template<typename T> class BST
             int size;
             BSTNode<T>* CreateNode(T key);
             void InOder(BSTNode<T>* node);
-            BSTNode<T>* FindMin(BSTNode<T>* node);
+            void BstNodeSwap(BSTNode<T>** node);
 };
 
 #endif /* BST_HPP */
