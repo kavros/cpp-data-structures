@@ -30,7 +30,7 @@ void BST<T>::Insert(T key)
     BSTNode<T>* prev = nullptr;
     while(curr!=nullptr)
     {
-        if(newNode->key < curr->key)
+        if(newNode->key <= curr->key)
         {
             prev=curr;
             curr=curr->left;
@@ -53,6 +53,7 @@ void BST<T>::Insert(T key)
         newNode->parent = prev;
     }
     size++;    
+    //std::cout<<newNode->key<<", parent:"<<prev->key<<std::endl;
 }
 
 template<typename T> 
