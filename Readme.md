@@ -1,4 +1,4 @@
-# Overview [![Build Status](https://travis-ci.com/kavros/cpp-data-structures.svg?branch=master)](https://travis-ci.com/kavros/cpp-data-structures)
+# Overview [![Build Status](https://travis-ci.com/kavros/cpp-data-structures.svg?branch=master)](https://travis-ci.com/kavros/cpp-data-structures) [![Coverage Status](https://coveralls.io/repos/github/kavros/cpp-data-structures/badge.svg?branch=master)](https://coveralls.io/github/kavros/cpp-data-structures?branch=master)
 This project aims to develop common data structures in C++ such as tree, queue, stack, hashtable and graphs
 
 # Install CppUnit
