@@ -85,24 +85,24 @@ bin/hashtableUnitTest: bin/hashtable.o\
 	$(CC)  $^ $(COMPILE_FLAGS) $(CPPUNITLDFLAGS) $(INCLUDES) -o $@ 
 	
 # List, Queue, Stack, Example, unit test
-bin/list.o: src/list/src/list.cpp\
-	src/list/include/list.hpp
+bin/list.o: src/linked_list/src/list.cpp\
+	src/linked_list/include/list.hpp
 	$(CC) -c $< $(COMPILE_FLAGS)  -o $@
 
-bin/queue.o: src/list/src/queue.cpp\
-	src/list/include/queue.hpp\
-	src/list/include/node.hpp\
-	src/list/include/list.hpp
+bin/queue.o: src/linked_list/src/queue.cpp\
+	src/linked_list/include/queue.hpp\
+	src/linked_list/include/node.hpp\
+	src/linked_list/include/list.hpp
 	$(CC) -c $<  $(COMPILE_FLAGS)-o $@
 
 
-bin/cppunit_test_driver.o:src/list/unit_tests/cppunitTestDriver.cpp
+bin/cppunit_test_driver.o:src/linked_list/unit_tests/cppunitTestDriver.cpp
 	$(CC) $(COMPILE_FLAGS) -c $< $(CPPUNITLDFLAGS) $(INCLUDES) -o $@
 
-bin/queueUnitTest.o:  src/list/unit_tests/queueUnitTest.cpp
+bin/queueUnitTest.o:  src/linked_list/unit_tests/queueUnitTest.cpp
 	$(CC) $(COMPILE_FLAGS) -c $< $(CPPUNITLDFLAGS) $(INCLUDES) -o $@
 	
-bin/stackUnitTest.o:  src/list/unit_tests/stackUnitTest.cpp
+bin/stackUnitTest.o:  src/linked_list/unit_tests/stackUnitTest.cpp
 	$(CC) $(COMPILE_FLAGS) -c $< $(CPPUNITLDFLAGS) $(INCLUDES) -o $@
 	
 bin/queueUnitTest: bin/queue.o\
@@ -119,14 +119,14 @@ bin/stackUnitTest: bin/stack.o\
 	$(CC)  $^ $(COMPILE_FLAGS) $(CPPUNITLDFLAGS) $(INCLUDES) -o $@ 
 
 
-bin/main.o: src/list/examples/main.cpp\
-	src/list/include/queue.hpp\
-	src/list/include/list.hpp\
-	src/list/include/stack.hpp
+bin/main.o: src/linked_list/examples/main.cpp\
+	src/linked_list/include/queue.hpp\
+	src/linked_list/include/list.hpp\
+	src/linked_list/include/stack.hpp
 	$(CC) $(COMPILE_FLAGS) -c $< -o $@
 
-bin/stack.o: src/list/src/stack.cpp\
-	    src/list/include/stack.hpp
+bin/stack.o: src/linked_list/src/stack.cpp\
+	    src/linked_list/include/stack.hpp
 	$(CC) $(COMPILE_FLAGS) -c $< -o $@
 
 bin/queue: bin/queue.o\
