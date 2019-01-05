@@ -38,6 +38,7 @@ run_tests:
 	./bin/queueUnitTest
 	./bin/stackUnitTest
 	./bin/hashtableUnitTest
+	./bin/bstUnitTest
 #BST
 bin/bst.o: src/tree/src/bst.cpp\
 	src/tree/include/bst.hpp
