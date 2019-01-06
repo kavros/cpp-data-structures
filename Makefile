@@ -17,7 +17,9 @@ EXECS=bin/queue\
 	bin/hashtable\
 	bin/hashtableUnitTest\
 	bin/bstUnitTest\
-	bin/bst
+	bin/bst\
+	bin/graph\
+	bin/graphUnitTest
 	
 
 
@@ -39,6 +41,34 @@ run_tests:
 	./bin/stackUnitTest
 	./bin/hashtableUnitTest
 	./bin/bstUnitTest
+	
+	
+#Graph
+bin/graph.o: src/graph/src/graph.cpp\
+	src/graph/include/graph.hpp
+	$(CC) $(COMPILE_FLAGS) -c $< -o $@
+	
+bin/graph_main.o:src/graph/examples/main.cpp\
+	    src/graph/src/graph.cpp\
+	    src/graph/include/graph.hpp
+	$(CC) $(COMPILE_FLAGS) -c $< -o $@
+	
+bin/graph:bin/graph_main.o\
+	    bin/graph.o
+	$(CC) $(COMPILE_FLAGS)  $^ -o $@
+
+bin/graphUnitTest.o: src/graph/unit_tests/graphUnitTest.cpp\
+		    src/graph/include/graph.hpp\
+		    src/graph/src/graph.cpp
+	$(CC) $(COMPILE_FLAGS) -c $<  $(CPPUNITLDFLAGS) $(INCLUDES) -o $@
+
+bin/graphUnitTest:bin/graphUnitTest.o\
+	bin/graph.o\
+	bin/cppunit_test_driver.o
+	$(CC)   $(COMPILE_FLAGS)  $^ $(CPPUNITLDFLAGS) $(INCLUDES) -o $@
+
+	
+
 #BST
 bin/bst.o: src/binary_search_tree/src/bst.cpp\
 	src/binary_search_tree/include/bst.hpp
