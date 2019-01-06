@@ -40,18 +40,18 @@ run_tests:
 	./bin/hashtableUnitTest
 	./bin/bstUnitTest
 #BST
-bin/bst.o: src/tree/src/bst.cpp\
-	src/tree/include/bst.hpp
+bin/bst.o: src/binary_search_tree/src/bst.cpp\
+	src/binary_search_tree/include/bst.hpp
 	$(CC) $(COMPILE_FLAGS) -c $< -o $@
 
-bin/bst_main.o: src/tree/examples/main.cpp\
-	    src/tree/include/bst.hpp\
-	    src/tree/src/bst.cpp
+bin/bst_main.o: src/binary_search_tree/examples/main.cpp\
+	    src/binary_search_tree/include/bst.hpp\
+	    src/binary_search_tree/src/bst.cpp
 	$(CC) $(COMPILE_FLAGS) -c $< -o $@
 	
-bin/bstUnitTest.o: src/tree/unit_tests/bstUnitTest.cpp\
-		src/tree/include/bst.hpp\
-		src/tree/src/bst.cpp
+bin/bstUnitTest.o: src/binary_search_tree/unit_tests/bstUnitTest.cpp\
+		src/binary_search_tree/include/bst.hpp\
+		src/binary_search_tree/src/bst.cpp
 	$(CC) $(COMPILE_FLAGS) -c $<  $(CPPUNITLDFLAGS) $(INCLUDES) -o $@
 
 bin/bst: bin/bst_main.o\
