@@ -27,6 +27,8 @@ public:
      * @return 
      */
     bool RemoveEdge(T val1, T val2 );
+    int GetTotalNodes();
+    int GetTotalEdges();
     
     void BFS();
     void DFS();

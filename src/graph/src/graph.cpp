@@ -3,6 +3,7 @@
 #include <algorithm>    // std::find
 #include<iterator> // for iterators 
 #include <iostream>
+#include<vector>
 using namespace std;
 template<typename T>
 Graph<T>::Graph() 
@@ -31,6 +32,8 @@ template<typename T> bool Graph<T>::AddEdge(T u, T a)
 
 template<typename T> bool Graph<T>::AddNode(T val)
 {
+    bool isFound = Find(val);
+    if ( isFound == true) return false;
     std::list<T> newList;
     newList.push_back(val);
     
@@ -80,7 +83,8 @@ template<typename T> bool Graph<T>::RemoveNode(T val )
         
         if(v[i].front() == val) //delete node and all the edges
         {
-            v[i].clear();
+            v.erase(v.begin()+i);
+            
             found=true;
             continue;
         }
@@ -120,8 +124,25 @@ template<typename T> bool Graph<T>::RemoveEdge(T val1, T val2 )
     
     return false;
 }
+
+template<typename T> int Graph<T>::GetTotalNodes()
+{
     
-    
+    return v.size();
+}
+   
+template<typename T> int Graph<T>::GetTotalEdges()
+{
+    int totalEdges=0;
+    int totalNodes = v.size();
+    for( int i = 0; i < totalNodes; i++) 
+    {
+         totalEdges = totalEdges+(v[i].size()-1);
+    }
+    return totalEdges;
+}
+
+
 template<typename T> void Graph<T>::BFS()
 {
     
@@ -140,3 +161,4 @@ template<typename T> Graph<T>::~Graph()
 template class Graph<double>;
 template class Graph<int>;
 template class Graph<float>;
+template class Graph<string>;
