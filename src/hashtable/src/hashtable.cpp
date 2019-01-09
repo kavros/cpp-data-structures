@@ -154,17 +154,15 @@ template<typename K, typename V>
 int Hashtable<K,V>::HashCode(K key)
 {
     int pos = 0;
-    if( strcmp(typeid(key).name(),"d") == 0 ||
-        strcmp(typeid(key).name(),"i") == 0 ||
-        strcmp(typeid(key).name(),"f") == 0 )
-    {
-        int key_int = (int)key;
-        pos = key_int%arrayPositions;
-    }
+   
+    int key_int = (int)key;
+    pos = key_int%arrayPositions;
+
     
     
     return pos;
 }
+
 
 // fix compile error with undefined reference
 template class Hashtable<float,float>;
@@ -182,4 +180,9 @@ template class Hashtable<double,double>;
 template class Hashtable<double,float>;
 template class Hashtable<double,int>;
 template class Hashtable<double,std::string>;
-
+/*
+template class Hashtable<std::string,double>;
+template class Hashtable<std::string,int>;
+template class Hashtable<std::string,float>;
+template class Hashtable<std::string,std::string>;
+ */
