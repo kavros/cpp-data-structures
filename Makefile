@@ -1,7 +1,7 @@
 CC =g++
 IDIR=list/include
 CFLAGS=-I$(IDIR)
-COMPILE_FLAGS=-std=c++11 -Wall -Wextra -g -O3  -std=c++0x 
+COMPILE_FLAGS=-std=c++11 -Wall -Wextra -g -O3  -std=c++0x  
 INCLUDES= -I /usr/local/include
 CPPUNITLDFLAGS=-lcppunit -Isrc -Itest
 
@@ -11,17 +11,17 @@ OBJECTS= bin/queue.o\
 	bin/stack.o\
 	bin/hashtable.o\
 	
-EXECS=bin/queue\
-	bin/queueUnitTest\
-	bin/stackUnitTest\
+
+EXECS=	bin/queue\
 	bin/hashtable\
-	bin/hashtableUnitTest\
-	bin/bstUnitTest\
 	bin/bst\
 	bin/graph\
-	bin/graphUnitTest
-	
 
+TESTS=	bin/queueUnitTest\
+	bin/stackUnitTest\
+	bin/hashtableUnitTest\
+	bin/bstUnitTest\
+	bin/graphUnitTest
 
 .PHONY: all
 all: 	directories\
@@ -34,6 +34,9 @@ all: 	directories\
 directories:
 	mkdir -p bin/unit_tests
 
+.PHONY: tests
+tests:	$(TESTS)
+	
 
 .PHONY: run_tests
 run_tests:
@@ -41,6 +44,7 @@ run_tests:
 	./bin/stackUnitTest
 	./bin/hashtableUnitTest
 	./bin/bstUnitTest
+	./bin/graphUnitTest
 	
 	
 #Graph
